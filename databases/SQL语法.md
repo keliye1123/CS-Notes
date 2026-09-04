@@ -197,7 +197,64 @@ SELECT 字段列表 FROM 表名 ORDERBY 字段1排序方式1,字段2 排序方�
 SELECT 字段列表 FROM 表名 LIMIT 起始索引，查询记录数;
 ~~~
 
-## 六、函数
+## 六、DCL
+
+### 管理用户
+
+#### 1.查询用户
+~~~sql
+USE mysql;
+SELECT * FROM user;
+~~~
+
+#### 2.创建用户
+~~~sql
+CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';
+~~~
+
+#### 3. 修改用户密码
+~~~sql
+ALTER USER '用户名'@'主机名' IDENTIFIED WITH mysql_native_password BY '新密码';
+~~~
+
+#### 4.删除用户
+~~~sql
+DROP USER '用户名'@'主机名';
+~~~
+- 注意：主机名可以用%表示任意主机。
+
+
+### 权限管理
+
+#### 1.权限分类
+- 所有权限：ALL, ALL PRIVILEGES
+  - 查询数据：SELECT
+  - 插入数据：INSERT
+  - 修改数据：UPDATE
+  - 删除数据：DELETE
+  - 修改表：ALTER
+  - 删除数据库/表/视图：DROP
+  - 创建数据库/表：CREATE
+
+#### 2.查询权限
+~~~sql
+SHOW GRANTS FOR '用户名'@'主机名';
+~~~
+
+#### 3.授予权限
+~~~sql
+GRANT 权限列表 ON 数据库名.表名 TO '用户名'@'主机名';
+~~~
+
+#### 4.撤销权限
+~~~sql
+REMOVE 权限列表 ON 数据库名.表名 FROM '用户名'@'主机名';
+~~~
+- 注意：
+  • 多个权限之间，使用逗号分隔
+  • 授权时，数据库名和表名可以使用*进行通配，代表所有。
+
+## 七、函数
 聚合函数：将一列数据作为一个个体，进行纵向计算。
 - 常见聚合函数：
   - count:统计数量
