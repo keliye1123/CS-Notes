@@ -680,3 +680,15 @@ int main(int argc,char *argv[]) {
 ```
 
 ## 三、windows的socket编程
+windows的socket编程和Linux的过程基本一样，但要先初始化socket库，结束时关闭socket库，且windows不能调用close函数。
+
+### 初始化socket库
+~~~cpp
+WSADATA wsaData;
+WSAStartup(MAKEWORD(2, 2), &wsaData);
+~~~
+
+### 关闭socket库
+~~~cpp
+WSACleanup()
+~~~
