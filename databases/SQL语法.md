@@ -173,7 +173,7 @@ SELECT DISTINCT 字段列表 FROM 表名;
 ~~~sql
 SELECT 字段列表 FROM 表名 WHERE 条件列表;
 ~~~
-![img_1.png](Image/databases/SQL语法/SQL语法_image1.png)
+![img_1.png](SQL语法_image1.png)
 
 ### 分组查询
 ~~~sql

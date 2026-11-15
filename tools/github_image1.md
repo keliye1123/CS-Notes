@@ -3,7 +3,7 @@
 - [github](#github)
   - [一、为git配置github账户授权](#一为git配置github账户授权)
   - [二、github仓库的基本操作](#二github仓库的基本操作)
-  - [](#)
+  - [三、在github上下载源码到本地编译](#三在github上下载源码到本地编译)
   - [](#)
   - [](#)
   - [](#)
@@ -51,3 +51,12 @@ git push -u origin master
 - 把master分支推送到origin远程仓库
 - 可在项目的.git目录下的config文件查看远程仓库信息
 - "-u"的作用是每次提交都同步提交到远程仓库。  
+
+
+## 三、在github上下载源码到本地编译
+- 在releases里找到Assets下载对应版本的Source code zip文件
+  ![img_18.png](github_image1.png)
+- 解压后用编译器以项目打开解压后的文件夹，在build目录下找到CMAKE_INSTALL_PREFIX，修改输出路径。
+  ![img_19.png](github_image2.png)
+- 编译运行没问题，在构建里点击安装，如果测试用例由于编译器问题没通过，可以手动在build目录下执行cmake --install.
+  ![img_20.png](github_image3.png)

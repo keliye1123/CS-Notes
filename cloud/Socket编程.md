@@ -103,11 +103,11 @@ int main() {
 }
 ``` 
 - 输出结果
-![cloud_image1.png](Image/cloud/cloud_image1.png)
+![cloud_image1.png](cloud_image1.png)
 
 #### 2.文件描述符/句柄的分配规则
 - 在/proc/进程id/fd 中，存放着每个进程打开的fd文件描述符/句柄,当我们运行demo3时，可打开其fd，如下图操作
-![cloud_image2.png](Image/cloud/cloud_image2.png)
+![cloud_image2.png](cloud_image2.png)
 我们使用`ls fd`可以看到4个文件描述符，分别是0,1,2,3,3是我们打开文件时创建的文件描述符。 Linux进程默认打开了三个文件描述符：0-标准输入（键盘），1-标准输出（显示器），2-标准错误（显示器）。
 正是因为Linux打开了这三个文件描述符，我们才能调用cin，cout，cerr进行输入和输出。
 - 测试代码
@@ -125,8 +125,8 @@ int main() {
 }
 ```  
 - 输出结果
-![cloud_image3.png](Image/cloud/cloud_image3.png)
-![cloud_image4.png](Image/cloud/cloud_image4.png)
+![cloud_image3.png](cloud_image3.png)
+![cloud_image4.png](cloud_image4.png)
 会直接输出，不会给你输入的机会。当我们查看其打开的文件描述符时，0就没有了。
 
 - 测试代码 
@@ -159,8 +159,8 @@ int main() {
 }
 ```  
 - 输出结果
-![cloud_image5.png](Image/cloud/cloud_image5.png)
-![cloud_image6.png](Image/cloud/cloud_image6.png)
+![cloud_image5.png](cloud_image5.png)
+![cloud_image6.png](cloud_image6.png)
 - 由图可知本来为输入文件描述符的0变为了我们创建文件的文件描述符。
 - 文件描述符的分配规则是：找到最小的，没有被占用的文件描述符。
 
@@ -245,7 +245,7 @@ int main(int argc,char *argv[]) {
 }
 ```
 - 测试结果  
-![cloud_image7.png](Image/cloud/cloud_image7.png)
+![cloud_image7.png](cloud_image7.png)
 用write和read也是可以正常通信的
 
 #### 4.总结
@@ -377,7 +377,7 @@ Intel 系列的 CPU 以小端序方式保存数据，其它型号的CPU 不一�
 体成员变量填充数据时，才需要考虑字节序的问题。
 
 ### 网络通信流程
-![cloud_image8.png](Image/cloud/cloud_image8.png)
+![cloud_image8.png](cloud_image8.png)
 
 ### 客户端与服务端封装例子
 #### 1.封装客户端socket

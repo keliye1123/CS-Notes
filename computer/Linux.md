@@ -201,7 +201,7 @@ echo 输出的内容
 
 - 无需选项，只有一个参数，表示要输出的内容，复杂内容可以用""包围 。
 - "``"的优先级很高，被""包围也能使用
-![img_1.png](Image/computer/Linux/Linux_image1.png)   
+![img_1.png](Linux_image1.png)   
   
 ### 重定向符
 - 我们再来学习两个特殊符号，重定向符：>和>>。
@@ -288,14 +288,14 @@ vim 文件路径
 如果文件路径表示的文件不存在，那么此命令会用于编辑新文件，如果文件路径表示的文件存在，那么此命令用于编辑已有文件。
   
 ### vim编辑器的三种工作方式
-![img_3.png](Image/computer/Linux/Linux_image3.png)
+![img_3.png](Linux_image3.png)
 - 命令模式（Command mode）：我打开vim时自动处于命令模式，所敲的按键编辑器都理解为命令，以命令驱动执行不同的功能。此模型下，不能自由进行文本编辑，可以用于移动游标查看内容。
 - 命令模式下的指令：
-  ![img_2.png](Image/computer/Linux/Linux_image2.png) 
+  ![img_2.png](Linux_image2.png) 
 - 输入模式（Insert mode）：也就是所谓的编辑模式、插入模式，在命令模式按下i键进入，在该模式下按下ESC键回到命令模式，此模式下，可以对文件内容进行自由编辑。
 - 底线命令模式(Last line mode）：在命令模式下按下":"进入。
 - 底线模式下的指令：
-  ![img_4.png](Image/computer/Linux/Linux_image4.png)
+  ![img_4.png](Linux_image4.png)
   
 ## 四、进程管理
   
@@ -314,7 +314,7 @@ ps [-e -f]
 - 一般来说，固定用法就是：ps-ef列出全部进程的全部信息
   
 #### 2.进程信息介绍  
-![img_5.png](Image/computer/Linux/Linux_image5.png)
+![img_5.png](Linux_image5.png)
 - UID：进程所属的用户ID
 - PID：进程的进程号ID
 - PPID：进程的父ID（启动此进程的其它进程)
@@ -345,7 +345,7 @@ top [-p -d -c -n -b -i -u]
 ~~~
 
 ### top头部信息解释
-![img_6.png](Image/computer/Linux/Linux_image6.png)
+![img_6.png](Linux_image6.png)
 - PID:进程id
 - USER: 进程所属用户
 - PR:进程优先级，越小越高
@@ -399,11 +399,11 @@ iostat [-x] [num1][num2]
 ## 七、权限管理
   
 ### root权限管理
-![img_7.png](Image/computer/Linux/Linux_image7.png)
-![img_8.png](Image/computer/Linux/Linux_image8.png)
-![img_9.png](Image/computer/Linux/Linux_image9.png)
-![img_10.png](Image/computer/Linux/Linux_image10.png)
-![img_11.png](Image/computer/Linux/Linux_image11.png)
+![img_7.png](Linux_image7.png)
+![img_8.png](Linux_image8.png)
+![img_9.png](Linux_image9.png)
+![img_10.png](Linux_image10.png)
+![img_11.png](Linux_image11.png)
   
 ### 用户组管理
 以下命令需root用户执行
@@ -445,8 +445,8 @@ getent
 ~~~
    
 ### 认知权限信息
-![img_12.png](Image/computer/Linux/Linux_image12.png)
-![img_13.png](Image/computer/Linux/Linux_image13.png)
+![img_12.png](Linux_image12.png)
+![img_13.png](Linux_image13.png)
 
 #### rwx
 - r表示读权限
@@ -543,5 +543,5 @@ export 变量名=变量值
   - 针对所有用户生效，配置在系统的：/etc/profile文件中
   - 并通过语法：source配置文件，进行立刻生效，或重新登录生效
 - 例子：用vim打开profile并添加值为LUO的环境变量MYNAME：export MYNAME=LUO。
-  ![img_14.png](Image/computer/Linux/Linux_image14.png)
+  ![img_14.png](Linux_image14.png)
 - 注意如果要给PATH添加路径则要写：export PATH=$PATH:路径，防止把之前的路径给覆盖了。

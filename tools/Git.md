@@ -80,7 +80,7 @@ git log
 - Modified:该文件相对于上一次commit更改了。Modified状态要通过add变成Staged状态再commit才能变成Unmodified状态。
 - 除了Untracked,其余的都是tracked状态，git是可见的。
 - git status 可以查看文件状态
-![Git_image1.png](Image/tools/Git/Git_image1.png)
+![Git_image1.png](Git_image1.png)
 
 ## 六、分支操作
 
@@ -93,7 +93,7 @@ git branch 1.0-dev
 ~~~bash  
 git checkout 1.0-dev
 ~~~
-![Git_image2.png](Image/tools/Git/Git_image2.png)
+![Git_image2.png](Git_image2.png)
 
 ### 3.分支合并,将1.0-dev分支拉去到master分支
 ~~~
@@ -109,10 +109,10 @@ git config --global merge.ff false
 ~~~
 
 ## 七、语义化版本号与工作流
-![Git_image3.png](Image/tools/Git/Git_image3.png)
-![Git_image4.png](Image/tools/Git/Git_image4.png)
-![Git_image5.png](Image/tools/Git/Git_image5.png)
-![Git_image6.png](Image/tools/Git/Git_image6.png)
+![Git_image3.png](Git_image3.png)
+![Git_image4.png](Git_image4.png)
+![Git_image5.png](Git_image5.png)
+![Git_image6.png](Git_image6.png)
 
 ## 八、git仓库其他常用操作
 

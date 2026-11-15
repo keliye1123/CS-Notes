@@ -48,7 +48,7 @@ int main(){
 ~~~
 
 - 代码执行结果
-![image1.png](Image/c++/C++基础/C++基础_image1.png)
+![image1.png](image1.png)
 
 - 结果解释
 预处理完的.i文件和源文件十分相似，不同的是.i文件将"//这是演示源码"等注释去除
@@ -68,11 +68,11 @@ g++ -S main.i -o main.s
 
 - 具体演示
   - 执行结果（生成汇编代码）
-  - ![image1.png](Image/c++/C++基础/C++基础_image2.png)
+  - ![image2.png](image2.png)
   - 检查错误代码验证
-  - ![image1.png](Image/c++/C++基础/C++基础_image3.png)
+  - ![image3.png](image3.png)
   - 错误代码执行结果
-  - ![image1.png](Image/c++/C++基础/C++基础_image4.png)
+  - ![image4.png](image4.png)
 
 - 结果解释
 在执行预处理命令时编译器没有报错，在执行编译命令是报错说   
@@ -100,15 +100,67 @@ g++ main.o -o mains
 原理能更好懂得如何配置不同的库。
 
 ### 1.静态库
-- 特征
-.o（Linux）或者.lib（windows）的文件
-- 性质
-由多个.o归档打包而成，链接时嵌入.exe文件中
- - 优点：不用外部依赖.o或者.lib文件
- - 缺点：当包更新时，需要重新编译链接包费时不灵活，且嵌入.exe文件中是其变臃肿。
+- 特征:.a（Linux）或者.lib（windows）的文件
+- 性质:由多个.o归档打包而成，链接时嵌入.exe文件中
+- 优点：不用外部依赖.o或者.lib文件
+- 缺点：当包更新时，需要重新编译链接包费时不灵活，且嵌入.exe文件中是其变臃肿。
 
 - 静态库制作过程   
-  
-库是.o文件的打包，我们要先获得.o文件
+
+- - 源码
+~~~cpp
+//库函数头文件声明了函数体，使用库函数必须先包含头文件
+
+#ifndef TEST_MYMATH_H
+#define TEST_MYMATH_H
+
+int add(int a, int b);
+
+#endif //TEST_MYMATH_H
+
+~~~
+~~~ cpp
+//函数的具体实现
+
+#include "Mymath.h"
+
+int add(int a, int b) {
+    return a + b;
+}
+~~~
+~~~
+#将.cpp文件转为.o文件
+g++ -c Mymath.cpp -o Mymath.o
+#将.o文件打包成.a文件（后面可跟多个.o文件一起打包成一个.a文件），链接库的习惯命名要以lib开头.a结尾
+ar rcs libMymath.a Mymath.o
+#将main.cpp文件一步转为.o文件,链接Mymath库
+g++ main.cpp -o main libMymath.a 
+~~~
+~~~ cpp
+//包含与库关联的头文件就能使用库中的函数
+#include <iostream>
+#include "Mymath.h"
+
+int main() {
+    std::cout << add(1,2) << std::endl;
+    return 0;
+}
+~~~
+
+### 2.动态态库
+- 特征:.so（Linux）或者.dll（windows）的文件
+- 性质:共享目标文件，代码不会在链接阶段复制到可执行程序。程序运行时，由操作系统动态链接器加载到进程内存，多个进程可共享同一份库内存。
+程序寻找动态库是先在当前目录下找，然后再到环境变量中找。
+- 优点：库更新时只需要替换库文件，不用重新编译（前提是更新不改变函数的名字和接口）
+- 缺点：在运行时找不到动态库才报错。
+- 动态库的制作
+~~~
+# 1. 编译成位置无关的.o
+g++ -c -fPIC Mymath.cpp -o Mymath.o
+# 2. 打包生成动态库 libMymath.so
+g++ -shared -o libMymath.so Mymath.o
+# 链接动态库和静态库方式一样
+g++ main.cpp -o main libMymath.so
+~~~
 
 
