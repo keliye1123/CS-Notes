@@ -18,4 +18,10 @@
   
 ## c++:编程
 
+- [c++基础](c++/)
 - [多线程编程](c++/多线程.md)
+
+## algorithms:算法
+
+- [Leetcode题解](algorithms/algorithms/Leetcode题解.md)
+- [算法](algorithms/algorithms/算法.md)
